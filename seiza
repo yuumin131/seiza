@@ -31,7 +31,7 @@ elif((923 <=date_num) and (date_num <=930)) or (( 1001 <= date_num) and (date_nu
 elif((1024 <=date_num) and (date_num <=1031)) or (( 1101 <= date_num) and (date_num <= 1122)):
     print("蠍座です")
 elif((1123 <=date_num) and (date_num <=1130)) or (( 1201 <= date_num) and (date_num <= 1221)):
-    print("牡牛座です")
+    print("射手座です")
 
 else:
     print("そんな誕生日はない")
