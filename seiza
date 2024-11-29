@@ -1,0 +1,36 @@
+#!/usr/bin/python3
+
+import sys
+
+date = sys.argv[1]
+#文字から数字に変換
+date_num = int(date)
+
+
+if ((1222 <= date_num) and (date_num <= 1231)) or ((101 <= date_num) and (date_num <= 119)):
+    print("山羊座です")
+elif ((120 <= date_num) and (date_num <= 131)) or ((201 <= date_num) and (date_num <= 218)):
+    print("みずがめ座です")
+elif((219 <=date_num) and (date_num <=229)) or ((301 <= date_num) and (date_num <= 320)):
+    print("魚座です")
+elif((321 <=date_num) and (date_num <=331)) or ((401 <= date_num) and (date_num <= 419)):
+    print("牡羊座です")
+elif((420 <=date_num) and (date_num <=430)) or (( 501 <= date_num) and (date_num <= 520)):
+    print("牡牛座です")
+elif((521 <=date_num) and (date_num <=530)) or (( 601 <= date_num) and (date_num <= 621)):
+    print("双子座です")
+elif((622 <=date_num) and (date_num <=630)) or (( 701 <= date_num) and (date_num <= 722)):
+    print("蟹座です")
+elif((723 <=date_num) and (date_num <=731)) or (( 801 <= date_num) and (date_num <= 822)):
+    print("獅子座です")
+elif((823 <=date_num) and (date_num <=831)) or (( 901 <= date_num) and (date_num <= 922)):
+    print("乙女座です")
+elif((923 <=date_num) and (date_num <=930)) or (( 1001 <= date_num) and (date_num <= 1023)):
+    print("天秤座です")
+elif((1024 <=date_num) and (date_num <=1031)) or (( 1101 <= date_num) and (date_num <= 1122)):
+    print("蠍座です")
+elif((1123 <=date_num) and (date_num <=1130)) or (( 1201 <= date_num) and (date_num <= 1221)):
+    print("牡牛座です")
+
+else:
+    print("そんな誕生日はない")
