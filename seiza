@@ -1,37 +1,67 @@
 #!/usr/bin/python3
 # SPDX-FileCopyrightText: 2024 Yuma Sakurai <yuumin0131@outlook.jp>
-#SPDX-License-Identifier:BSD-3-Clause
+# SPDX-License-Identifier: BSD-3-Clause
+
 import sys
+from datetime import datetime
 
-date = sys.argv[1]
-#文字から数字に変換
-date_num = int(date)
+def validate_date(date_str):
+    """日付形式がMMDDで有効かをチェック"""
+    try:
+        datetime.strptime(date_str, "%m%d")
+        return True
+    except ValueError:
+        return False
 
+def get_zodiac(date_num):
+    """日付数値から星座を判定"""
+    if ((1222 <= date_num <= 1231) or (101 <= date_num <= 119)):
+        return "山羊座です"
+    elif ((120 <= date_num <= 131) or (201 <= date_num <= 218)):
+        return "みずがめ座です"
+    elif ((219 <= date_num <= 229) or (301 <= date_num <= 320)):
+        return "魚座です"
+    elif ((321 <= date_num <= 331) or (401 <= date_num <= 419)):
+        return "牡羊座です"
+    elif ((420 <= date_num <= 430) or (501 <= date_num <= 520)):
+        return "牡牛座です"
+    elif ((521 <= date_num <= 531) or (601 <= date_num <= 621)):
+        return "双子座です"
+    elif ((622 <= date_num <= 630) or (701 <= date_num <= 722)):
+        return "蟹座です"
+    elif ((723 <= date_num <= 731) or (801 <= date_num <= 822)):
+        return "獅子座です"
+    elif ((823 <= date_num <= 831) or (901 <= date_num <= 922)):
+        return "乙女座です"
+    elif ((923 <= date_num <= 930) or (1001 <= date_num <= 1023)):
+        return "天秤座です"
+    elif ((1024 <= date_num <= 1031) or (1101 <= date_num <= 1122)):
+        return "蠍座です"
+    elif ((1123 <= date_num <= 1130) or (1201 <= date_num <= 1221)):
+        return "射手座です"
+    else:
+        return "そんな誕生日はない"
 
-if ((1222 <= date_num) and (date_num <= 1231)) or ((101 <= date_num) and (date_num <= 119)):
-    print("山羊座です")
-elif ((120 <= date_num) and (date_num <= 131)) or ((201 <= date_num) and (date_num <= 218)):
-    print("みずがめ座です")
-elif((219 <=date_num) and (date_num <=229)) or ((301 <= date_num) and (date_num <= 320)):
-    print("魚座です")
-elif((321 <=date_num) and (date_num <=331)) or ((401 <= date_num) and (date_num <= 419)):
-    print("牡羊座です")
-elif((420 <=date_num) and (date_num <=430)) or (( 501 <= date_num) and (date_num <= 520)):
-    print("牡牛座です")
-elif((521 <=date_num) and (date_num <=530)) or (( 601 <= date_num) and (date_num <= 621)):
-    print("双子座です")
-elif((622 <=date_num) and (date_num <=630)) or (( 701 <= date_num) and (date_num <= 722)):
-    print("蟹座です")
-elif((723 <=date_num) and (date_num <=731)) or (( 801 <= date_num) and (date_num <= 822)):
-    print("獅子座です")
-elif((823 <=date_num) and (date_num <=831)) or (( 901 <= date_num) and (date_num <= 922)):
-    print("乙女座です")
-elif((923 <=date_num) and (date_num <=930)) or (( 1001 <= date_num) and (date_num <= 1023)):
-    print("天秤座です")
-elif((1024 <=date_num) and (date_num <=1031)) or (( 1101 <= date_num) and (date_num <= 1122)):
-    print("蠍座です")
-elif((1123 <=date_num) and (date_num <=1130)) or (( 1201 <= date_num) and (date_num <= 1221)):
-    print("射手座です")
+def main():
+    try:
+        line = sys.stdin.readline().strip()  # 標準入力から読み取る
+        if not line.isdigit():
+            print("無効な入力です。整数の数字を入力してください。", file=sys.stderr)
+            sys.exit(1)
+        
+        if not validate_date(line):
+            print("無効な日付形式です。MMDD形式で正しい日付を入力してください。", file=sys.stderr)
+            sys.exit(1)
+        
+        # 日付を数値に変換して星座を判定
+        date_num = int(line)
+        zodiac = get_zodiac(date_num)
+        print(zodiac)
+    
+    except Exception as e:
+        print(f"エラーが発生しました: {e}", file=sys.stderr)
+        sys.exit(1)
 
-else:
-    print("そんな誕生日はない")
+if __name__ == "__main__":
+    main()
+
