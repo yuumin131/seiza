@@ -26,11 +26,11 @@ cd seiza
   - 例1
 
   ```bash
-  ./seiza 101
+  echo 101 | ./seiza
   ```
   - 例2
   ```bash
-  ./seiza 1001
+  echo 1001 | ./seiza
   ```
 - 実行結果
   - 例1
@@ -43,7 +43,7 @@ cd seiza
   ```
     - 誕生日以外を入力した場合
     ```bash
-    ./seiza 10111
+    echo 10111 | ./seiza
     ```
     - 結果
     ```
